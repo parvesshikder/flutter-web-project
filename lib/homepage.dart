@@ -5,12 +5,19 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import '../commmon widget/navigartion_bar_with_start.dart';
 import '../commmon widget/navigation_bar.dart';
+import 'milestone/create_milestone.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   bool isTablet(BuildContext context) =>
       MediaQuery.of(context).size.width < 600;
+
   bool isDesktop(BuildContext context) =>
       MediaQuery.of(context).size.width >= 1100;
 
@@ -304,120 +311,11 @@ class HomePage extends StatelessWidget {
                             ),
                             Expanded(
                               child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                crossAxisAlignment: CrossAxisAlignment.stretch, 
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Container(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(15.0),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Project Progress',
-                                            style: TextStyle(fontSize: 18),
-                                          ),
-                                          SizedBox(
-                                            height: 8,
-                                          ),
-                                          Divider(
-                                            height: 1.5,
-                                            color: Color.fromARGB(
-                                                255, 224, 224, 224),
-                                          ),
-                                          SizedBox(
-                                            height: 10,
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    '1% Completed',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 5,
-                                                  ),
-                                                  Text(
-                                                      '180 days left in this project'),
-                                                ],
-                                              ),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                children: [
-                                                  Text(
-                                                    'Target Completation date',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 5,
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Icon(
-                                                        Feather.edit_2,
-                                                        size: 15,
-                                                        color: Colors.blue,
-                                                      ),
-                                                      SizedBox(
-                                                        width: 5,
-                                                      ),
-                                                      Text('Oct 16, 2025'),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 30,
-                                          ),
-                                          LinearPercentIndicator(
-                                            barRadius: Radius.circular(20),
-                                            lineHeight: 10.0,
-                                            percent: 0.01,
-                                            backgroundColor: Color.fromARGB(
-                                                255, 233, 233, 233),
-                                            progressColor: Colors.blue,
-                                          ),
-                                          SizedBox(
-                                            height: 20,
-                                          ),
-                                          Divider(
-                                            height: 1.5,
-                                            color: Color.fromARGB(
-                                                255, 224, 224, 224),
-                                          ),
-                                          SizedBox(
-                                            height: 10,
-                                          ),
-                                          Text(
-                                            'Create new milestones',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                color: Colors.blue),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Color.fromARGB(
-                                              255, 235, 235, 235),
-                                          width: 2.0,
-                                        ),
-                                        borderRadius: BorderRadius.circular(4)),
-                                  ),
+                                  CreateMileStone(),
                                   SizedBox(
                                     height: 10,
                                   ),
